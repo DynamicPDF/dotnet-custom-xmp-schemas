@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E07CEE85-61B8-41B4-94F4-AA1FD715E0ED}</ProjectGuid>
+    <ProjectGuid>{75A5A001-C28A-4583-A65A-1C9ADCD29B52}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MergePDFBookmarks</RootNamespace>
-    <AssemblyName>merge-pdf-bookmarks</AssemblyName>
+    <RootNamespace>CustomXmpSchemas</RootNamespace>
+    <AssemblyName>CustomXmpSchemas</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamicPDF.NETFramework40, Version=10.11.0.40, Culture=neutral, PublicKeyToken=09b5ce0d5c0a9d8b, processorArchitecture=MSIL">
-      <HintPath>packages\ceTe.DynamicPDF.CoreSuite.NET.10.11.0.38598\lib\net40\DynamicPDF.NETFramework40.dll</HintPath>
+    <Reference Include="DynamicPDF.NETFramework40, Version=10.12.0.40, Culture=neutral, PublicKeyToken=09b5ce0d5c0a9d8b, processorArchitecture=MSIL">
+      <HintPath>packages\ceTe.DynamicPDF.CoreSuite.NET.10.12.0.38759\lib\net40\DynamicPDF.NETFramework40.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,20 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Examples\BookmarkForEachPDFExample.cs" />
-    <Compile Include="Examples\DefaultBehaviorExample.cs" />
-    <Compile Include="Examples\OrganizingBookmarksExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="README.md" />
-    <None Include="Resources\test-doc-a.pdf" />
-    <None Include="Resources\test-doc-b.pdf" />
-    <None Include="Resources\test-doc-c.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
