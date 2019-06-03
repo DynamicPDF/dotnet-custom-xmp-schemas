@@ -1,7 +1,6 @@
 ﻿using System;
 using ceTe.DynamicPDF;
-using ceTe.DynamicPDF.PageElements;
-using ceTe.DynamicPDF.Xmp;
+using CustomXmpSchemas.Examples;
 
 namespace CustomXmpSchemas
 {
@@ -10,45 +9,46 @@ namespace CustomXmpSchemas
     {
         static void Main(string[] args)
         {
-            Document document = new Document();
-            Page page = new Page();
-            Label label = new Label("This PDF has a custom XMP schema", 10, 10, 300, 20);
-            page.Elements.Add(label);
-            document.Pages.Add(page);
-
-            CustomSchema schema = new CustomSchema
+            string fileName = string.Empty;
+            bool exit = false;
+            Console.WriteLine("This example shows how to create a custom XMP schema when creating PDFs with DynamicPDF Generator for .NET");
+            Console.WriteLine();
+            while (!exit)
             {
-                UserName = "John",
-                CreationDate = DateTime.Now
-            };
+                Console.WriteLine(" A : Custom XMP schema (CustomSchemaExample)");
 
-            XmpMetadata metadata = new XmpMetadata();
-            metadata.AddSchema(schema);
-            document.XmpMetadata = metadata;
+                Console.WriteLine();
+                Console.Write("Please press the corresponding key to run an example. Press any other key to quit: ");
 
-            document.Draw(@"CustomSchema.pdf");
-        }
-    }
+                ConsoleKeyInfo runKey = Console.ReadKey();
+                Console.WriteLine();
+                Console.WriteLine();
 
-    public class CustomSchema : XmpSchema
-    {
-        public CustomSchema() { }
-
-        public String UserName { get; set; }
-
-        public DateTime? CreationDate { get; set; }
-
-        protected override void Draw(XmpWriter xwriter)
-        {
-            xwriter.BeginDescription("http://ns.adobe.com/xap/1.0/", "xmp", " ");
-            if (UserName != null) xwriter.Draw("\t\t<xmp:CreatedBy>" + UserName + "</xmp:CreatedBy>\n");
-            if (CreationDate != null)
-            {
-                xwriter.Draw("\t\t<xmp:DateCreated>" + CreationDate.Value.ToUniversalTime() + "</xmp:DateCreated>\n");
+                switch (runKey.KeyChar)
+                {
+                    case 'a': goto case 'A';
+                    case 'A':
+                        fileName = "CustomSchemaExample.pdf";
+                        CustomSchemaExample.Run(fileName);
+                        break;
+                    default:
+                        exit = true;
+                        break;
+                }
+                if (!exit)
+                {
+                    Console.WriteLine("Press 'A' to open the PDF. Press any other key to continue.");
+                    ConsoleKeyInfo openKey = Console.ReadKey(true);
+                    Console.WriteLine();
+                    if (openKey.KeyChar == 'a' || openKey.KeyChar == 'A')
+                    {
+                        System.Diagnostics.Process.Start(fileName);
+                        Console.WriteLine("Please be sure to close the PDF before running the example again, or an error will occur.");
+                        Console.WriteLine();
+                    }
+                }
             }
-            xwriter.Draw("\t\t<xmp:CreatorTool>" + xwriter.Producer + "</xmp:CreatorTool>\n");
-            xwriter.Draw("\t\t<xmp:MetadataDate>" + xwriter.Date.ToUniversalTime() + "</xmp:MetadataDate>\n");
-            xwriter.EndDescription();
+
         }
     }
 
