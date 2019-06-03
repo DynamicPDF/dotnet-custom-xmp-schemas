@@ -14,14 +14,14 @@ namespace CustomXmpSchemas.Examples
             this.creationDate = creationDate;
         }
 
-        protected override void Draw(XmpWriter xwriter)
+        protected override void Draw(XmpWriter xmpWriter)
         {
-            xwriter.BeginDescription("http://ns.adobe.com/xap/1.0/", "xmp", " ");
-            if (userName != null) xwriter.Draw("\t\t<xmp:CreatedBy>" + userName + "</xmp:CreatedBy>\n");
-            xwriter.Draw("\t\t<xmp:DateCreated>" + creationDate.ToUniversalTime() + "</xmp:DateCreated>\n");
-            xwriter.Draw("\t\t<xmp:CreatorTool>" + xwriter.Producer + "</xmp:CreatorTool>\n");
-            xwriter.Draw("\t\t<xmp:MetadataDate>" + xwriter.Date.ToUniversalTime() + "</xmp:MetadataDate>\n");
-            xwriter.EndDescription();
+            xmpWriter.BeginDescription("http://ns.adobe.com/xap/1.0/", "xmp", " ");
+            if (userName != null) xmpWriter.Draw("\t\t<xmp:CreatedBy>" + userName + "</xmp:CreatedBy>\n");
+            xmpWriter.Draw("\t\t<xmp:DateCreated>" + creationDate.ToUniversalTime() + "</xmp:DateCreated>\n");
+            xmpWriter.Draw("\t\t<xmp:CreatorTool>" + xmpWriter.Producer + "</xmp:CreatorTool>\n");
+            xmpWriter.Draw("\t\t<xmp:MetadataDate>" + xmpWriter.Date.ToUniversalTime() + "</xmp:MetadataDate>\n");
+            xmpWriter.EndDescription();
         }
     }
 }

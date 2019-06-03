@@ -15,9 +15,9 @@ namespace CustomXmpSchemas.Examples
             page.Elements.Add(label);
             document.Pages.Add(page);
 
-            XmpMetadata metadata = new XmpMetadata();
-            metadata.AddSchema(new CustomSchema("John", DateTime.Now));
-            document.XmpMetadata = metadata;
+            XmpMetadata xmpMetadata = new XmpMetadata();
+            xmpMetadata.AddSchema(new CustomSchema("John", DateTime.Now));
+            document.XmpMetadata = xmpMetadata;
 
             document.Draw(outputFilePath);
         }
