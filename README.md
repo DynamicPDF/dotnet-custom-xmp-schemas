@@ -2,7 +2,7 @@
 This example shows how to create a custom XMP schema (META data) when creating
 PDFs in DynamicPDF Generator, Merger or Core Suite for .NET. A blog post on
 this subject can be found here:  
-[Creating Creating PDFs with Custom XMP Schemas](https://www.dynamicpdf.com/Blog/post/2019/06/03/Creating-PDFs-with-Custom-XMP-Schemas.aspx)
+[Creating Creating PDFs with Custom XMP Schemas](https://www.dynamicpdf.com/Blog/post/Creating-PDFs-with-Custom-XMP-Schemas.aspx)
 
 ## NuGet Packages
 This example references the ceTe.DynamicPDF.CoreSuite.NET NuGet package.
